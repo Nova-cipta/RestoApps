@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+apply from: '../shared_dependency.gradle'
+
+android {
+    namespace 'com.example.core'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 33
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding = true
+    }
+}
+
+dependencies {
+    // core-module
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    // Room
+    implementation "androidx.room:room-runtime:2.5.0"
+    kapt "androidx.room:room-compiler:2.5.0"
+    androidTestImplementation "androidx.room:room-testing:2.5.0"
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation "androidx.room:room-ktx:2.5.0"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+}
