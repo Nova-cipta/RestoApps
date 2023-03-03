@@ -8,7 +8,6 @@ import com.example.core.db.room.entity.relation.OrderAndMenuEntity
 import kotlinx.coroutines.flow.Flow
 
 interface IRepository {
-
     fun getAllMenu(): Flow<List<MenuEntity>>
 
     fun getListMenuByType(idType: Long): Flow<List<MenuEntity>>
