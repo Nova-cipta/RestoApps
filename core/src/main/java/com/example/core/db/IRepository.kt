@@ -5,42 +5,43 @@ import com.example.core.db.room.entity.MenuTypeEntity
 import com.example.core.db.room.entity.OrderEntity
 import com.example.core.db.room.entity.TransactionEntity
 import com.example.core.db.room.entity.relation.OrderAndMenuEntity
+import com.example.core.model.*
 import kotlinx.coroutines.flow.Flow
 
 interface IRepository {
-    fun getAllMenu(): Flow<List<MenuEntity>>
+    fun getAllMenu(): Flow<List<MenuModel>>
 
-    fun getListMenuByType(idType: Long): Flow<List<MenuEntity>>
+    fun getListMenuByType(idType: Long): Flow<List<MenuModel>>
 
-    fun getMenuType(): Flow<List<MenuTypeEntity>>
+    fun getMenuType(): Flow<List<MenuTypeModel>>
 
-    fun getOrderMenuByTrans(idTrans: Long): Flow<List<OrderAndMenuEntity>>
+    fun getOrderMenuByTrans(idTrans: Long): Flow<List<OrderAndMenu>>
 
-    fun getOnGoingTrans(): Flow<List<TransactionEntity>>
+    fun getOnGoingTrans(): Flow<List<TransactionModel>>
 
-    fun getFinishedTrans(): Flow<List<TransactionEntity>>
+    fun getFinishedTrans(): Flow<List<TransactionModel>>
 
-    suspend fun insertMenu(menuEntity: MenuEntity)
+    suspend fun insertMenu(menu: MenuModel, result: (Boolean) -> Unit)
 
-    suspend fun updateMenu(menuEntity: MenuEntity)
+    suspend fun updateMenu(menu: MenuModel, result: (Boolean) -> Unit)
 
-    suspend fun deleteMenu(menuEntity: MenuEntity)
+    suspend fun deleteMenu(menu: MenuModel, result: (Boolean) -> Unit)
 
-    suspend fun insertMenuType(menuTypeEntity: MenuTypeEntity)
+    suspend fun insertMenuType(menuType: MenuTypeModel, result: (Boolean) -> Unit)
 
-    suspend fun updateMenuType(menuTypeEntity: MenuTypeEntity)
+    suspend fun updateMenuType(menuType: MenuTypeModel, result: (Boolean) -> Unit)
 
-    suspend fun deleteMenuType(menuTypeEntity: MenuTypeEntity)
+    suspend fun deleteMenuType(menuType: MenuTypeModel, result: (Boolean) -> Unit)
 
-    suspend fun insertOrder(orderEntity: OrderEntity)
+    suspend fun insertOrder(orderModel: OrderModel, result: (Boolean) -> Unit)
 
-    suspend fun updateOrder(orderEntity: OrderEntity)
+    suspend fun updateOrder(orderModel: OrderModel, result: (Boolean) -> Unit)
 
-    suspend fun deleteOrder(orderEntity: OrderEntity)
+    suspend fun deleteOrder(orderModel: OrderModel, result: (Boolean) -> Unit)
 
-    suspend fun insertTrans(transactionEntity: TransactionEntity)
+    suspend fun insertTrans(transModel: TransactionModel, result: (Boolean) -> Unit)
 
-    suspend fun updateTrans(transactionEntity: TransactionEntity)
+    suspend fun updateTrans(transModel: TransactionModel, result: (Boolean) -> Unit)
 
-    suspend fun deleteTrans(transactionEntity: TransactionEntity)
+    suspend fun deleteTrans(transModel: TransactionModel, result: (Boolean) -> Unit)
 }

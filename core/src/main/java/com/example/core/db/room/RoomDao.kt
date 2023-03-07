@@ -20,7 +20,7 @@ interface RoomDao {
     fun getMenuType(): Flow<List<MenuTypeEntity>>
 
     @Query("SELECT * FROM orderEntity INNER JOIN menuEntity " +
-            "ON orderEntity.idMenu = menuEntity.idMenu" +
+            "ON orderEntity.idMenu = menuEntity.idMenu " +
             "WHERE idTrans = :idTrans")
     fun getOrderMenuByTrans(idTrans: Long): Flow<List<OrderAndMenuEntity>>
 
