@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -56,9 +57,9 @@ class Repository @Inject constructor(
                 roomDataSource.insertMenu(mdata).apply {
                     withContext(dispatcher.main){result(true)}
                 }
-            }catch (e: Exception){
-                Log.e("Repository", e.message.toString())
-                withContext(dispatcher.main){result(false)}
+            }catch (e: Exception) {
+                Timber.tag("Repository").e(e.message.toString())
+                withContext(dispatcher.main) { result(false) }
             }
         }
     }
