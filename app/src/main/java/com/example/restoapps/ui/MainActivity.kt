@@ -1,17 +1,24 @@
 package com.example.restoapps.ui
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.material3.Surface
+import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.compose.rememberNavController
-import com.example.restoapps.ui.navigates.*
+import com.example.restoapps.ui.navigates.RestoNavGraph
 import com.example.restoapps.ui.theme.RestoAppsTheme
+import com.example.restoapps.ui.theme.md_theme_dark_inversePrimary
+import com.example.restoapps.ui.theme.md_theme_light_onPrimary
 import dagger.hilt.android.AndroidEntryPoint
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +26,15 @@ class MainActivity : ComponentActivity() {
       setContent{
          val navController = rememberNavController()
          RestoAppsTheme {
-            RestoNavGraph(
-               navController = navController
-            )
+            Surface(
+               tonalElevation = 1.dp,
+               color = md_theme_light_onPrimary,
+               contentColor = md_theme_dark_inversePrimary
+            ) {
+               RestoNavGraph(
+                  navController = navController
+               )
+            }
          }
       }
    }

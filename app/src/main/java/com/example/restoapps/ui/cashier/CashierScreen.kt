@@ -1,20 +1,32 @@
 package com.example.restoapps.ui.cashier
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.DrawerState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import com.example.restoapps.ui.component.DrawerBody
+import com.example.restoapps.ui.navigates.RestoNavAction
 
 @Composable
 fun CashierScreen(
-   modifier: Modifier,
-   navController: NavController
+   currentRoute: String,
+   drawerState: DrawerState,
+   navigator: RestoNavAction,
+   openDrawer: () -> Unit,
+   closeDrawer: () -> Unit
 ){
-   Column(
-      modifier = modifier
+   DrawerBody(
+      pageTitle = "Cashier",
+      currentRoute = currentRoute,
+      drawerState = drawerState,
+      navigator = navigator,
+      closeDrawer = { closeDrawer() },
+      openDrawer = { openDrawer() },
    ) {
-      Text(text = "Cashier")
+      Column(
+         modifier = it,
+      ) {
+         Text(text = "Cashier")
+      }
    }
 }

@@ -1,8 +1,10 @@
 package com.example.restoapps.ui.navigates
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavOptionsBuilder
+import androidx.navigation.navArgument
+import com.example.core.model.MenuModel
 
 object RestoDestinations{
    const val HOME_SCREEN = "home_screen"
@@ -44,13 +46,16 @@ class RestoNavAction(navController: NavHostController) {
          restoreState = true
       }
    }
-   val navigateToEdtMenu: () ->Unit = {
-      navController.navigate(RestoDestinations.EDT_MENU_SCREEN) {
-         popUpTo(navController.graph.findStartDestination().id) {
-            saveState = true
-         }
+   val navigateToEdtMenu: (MenuModel?) -> Unit = { menu ->
+      navController.navigate( RestoDestinations.EDT_MENU_SCREEN +
+            "/" + menu?.idMenu + "?type=" + menu?.idType + "?name=" + menu?.menuName +
+            "?img=" + menu?.menuImg + "?price=" + menu?.price + "?able=" + menu?.available
+      ) {
          launchSingleTop = true
          restoreState = true
       }
+   }
+   val navigateBack: () -> Unit = {
+      navController.navigateUp()
    }
 }
