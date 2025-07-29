@@ -1,0 +1,80 @@
+[versions]
+agp = "8.11.1"
+kotlin = "2.0.21"
+coreKtx = "1.16.0"
+multidex = "2.0.1"
+ksp = "2.0.21-1.0.27"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+lifecycle = "2.9.2"
+coroutine = "1.7.1"
+activityCompose = "1.10.1"
+composeBom = "2024.09.00"
+composeNav = "2.5.3"
+room = "2.5.1"
+dagger = "2.56.2"
+hilt = "1.2.0"
+accompanist = "0.28.0"
+coil = "2.4.0"
+glide = "1.0.0-alpha.1"
+timber = "5.0.1"
+
+[libraries]
+#Core
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-multidex = { group = "androidx.multidex", name = "multidex", version.ref = "multidex" }
+#Unit-test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+#Lifecycle
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+#Coroutine
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutine" }
+#Navigation
+androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composeNav" }
+#Dagger
+dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger"}
+dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger"}
+#Hilt
+hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt"}
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt"}
+#Compose
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+#Room
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room"}
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room"}
+androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room"}
+#Extras
+google-accompanist = { group = "com.google.accompanist", name = "accompanist-themeadapter-material", version.ref = "accompanist"}
+bumptech-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide" }
+io-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+jakewharton-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber"}
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library"}
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+kotlin-parcelize = { id = "kotlin-parcelize"}
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+
